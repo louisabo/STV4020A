@@ -8,7 +8,7 @@ setwd("")
 
 ### Laster inn datasettet 
 
-load(file = "nyedata_SEMINAR_2.Rdata")
+load(file = "VALGDATA.Rdata")
 
 
 ### Viser meg variabel navn 
