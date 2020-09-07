@@ -56,12 +56,7 @@ kvinner <- mean(nyedata$alder[nyedata$kjonn == 2], na.rm = T) #kvinner
 
 menn - kvinner # 1.34 
 
-### Oppgave 10 
-
-cor(nyedata$kjonn, nyedata$rik,  use = "pairwise.complete.obs", 
-    method = c("pearson"))
-
-### Oppgave 11 
+### Oppgave 10
 
 library(ggthemes)
 ggplot(nyedata) + 
