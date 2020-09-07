@@ -68,7 +68,7 @@ ggplot(nyedata) +
   theme_fivethirtyeight()
 
 
-### Oppgave 12 
+### Oppgave 11
 
 nyedata$blokk <- ifelse(nyedata$valg == 1, "venstresiden", # koder om rødt 
                         ifelse(nyedata$valg == 2, "venstresiden", # Koder om SV
