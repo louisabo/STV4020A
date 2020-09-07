@@ -2,21 +2,21 @@
 
 
 ### Setter working directory 
-
+## oppgave 1
 
 setwd("")
 
 ### Laster inn datasettet 
-
+## oppgave 2
 load(file = "nyedata_SEMINAR_2.Rdata")
 
-
+## oppgave 3
 ### Viser meg variabel navn 
 
 show(variable.names(nyedata))
 
 
-### Oppgave 5 
+### Oppgave 4
 
 table(nyedata$kjonn) # Gir meg 1 og 2 
 
@@ -27,7 +27,7 @@ show(nyedata$kjonn) # 1 = mann, 2 = kvinne
 # Det er 777 menn i datasettet 
 # Det er 629 kvinner i datasettet 
 
-### Oppgave 6 
+### Oppgave 5 
 # Gjør om variablen alder til numerisk 
 
 nyedata$alder <- as.numeric(nyedata$alder)
@@ -36,7 +36,7 @@ class(nyedata$alder)
 # Gjør om variabelen kjønn til numerisk 
 nyedata$kjonn <- as.numeric(nyedata$kjonn)
 
-### Oppgave 7
+### Oppgave 6
 # Gjennomsnittsalder for alle 
 
 mean(nyedata$alder, na.rm = T)
@@ -45,23 +45,18 @@ mean(nyedata$alder, na.rm = T)
 # R kan ikke regne ut gjennomsnittsalderen til enheter som 
 # ikke har oppgitt sin alder
 
-### Oppgave 8 
+### Oppgave 7
 mean(nyedata$alder[nyedata$kjonn == 1], na.rm = T) #menn 
 mean(nyedata$alder[nyedata$kjonn == 2], na.rm = T) #kvinner 
 
-### Oppgave 9 
+### Oppgave 8
 
 menn <- mean(nyedata$alder[nyedata$kjonn == 1], na.rm = T) #menn 
 kvinner <- mean(nyedata$alder[nyedata$kjonn == 2], na.rm = T) #kvinner 
 
 menn - kvinner # 1.34 
 
-### Oppgave 10 
-
-cor(nyedata$kjonn, nyedata$rik,  use = "pairwise.complete.obs", 
-    method = c("pearson"))
-
-### Oppgave 11 
+### Oppgave 9
 
 library(ggthemes)
 ggplot(nyedata) + 
@@ -73,7 +68,7 @@ ggplot(nyedata) +
   theme_fivethirtyeight()
 
 
-### Oppgave 12 
+### Oppgave 10
 
 nyedata$blokk <- ifelse(nyedata$valg == 1, "venstresiden", # koder om rødt 
                         ifelse(nyedata$valg == 2, "venstresiden", # Koder om SV
