@@ -19,39 +19,69 @@
 
 
 ######## DATA OM OSS SELV ########
-######## OPPRETTER OBJEKTER 
+
+
+navn <- c("Anna", "Linn", "Jonas", "Martin", "Eli", "Mathias",  
+          "Matias", "Anna", "Mona", "Erik", "Live", "Jon", "Balz", "Louisa" )
+
+kjonn <- c("J", "J", "G", "G", "J", "G", "G", "J", "J", "G", "J", "G", "G", "J")
+
+studiested <- c("Edinburgh", "Bodo", "UiO", "UiO", "Durham", "UiB", "UiO", "Manchester", 
+                "Agder", "Halden", "UiB", "UiO", "UiO", "UiO")
+
+alder <- c("24", "25", "23", "28", "22", "26", "24", "24", "25", "21", "24", "22", "41", "25")
+
+data <- data.frame(navn, alder, kjonn, studiested,
+                   stringsAsFactors = F)
+
+
+View(data)
+head(data)
+tail(data)
+
+show(variable.names(data))
 
 ######## HVILKEN KLASSE HAR DE ULIKE OBJEKTENE? 
 # NAVN
 # ALDER 
 # KJØNN 
 
-######## HER LAGER JEG DATASETTET 
-######## VÆR OPPMERKSOM PÅ HVA SOM SKJER I "ENVIRONMENTET"
+class(data$navn)
+class(data$alder)
 
+data$alder <- as.numeric(data$alder)
+class(data$alder)
 
-
-######## OVERSIKT OVER DATASETTET + TABULLERING 
+mean(data$alder)
+sd(data$alder)
 
 ######## GJENNOMSNITTSALDEREN FOR KVINNER I SEMINARET - INDEKSERING
-######## GJENNOMSNITTSALDEREN FOR MENN I SEMINARET - INDEKSERING
+mean(data$alder[data$kjonn =="J"])
 
+######## GJENNOMSNITTSALDEREN FOR MENN I SEMINARET - INDEKSERING
+mean(data$alder[data$kjonn =="G"])
+
+######## TABULLERING 
+
+table(data$studiested)
+table(data$alder)
+table(data$kjonn, data$alder)
 ######## PLOTTING
 
 
 ######## ORGANISERING AV ARBEID I R ########
 ######## Først må vi fjerne de som er i "environmentet" 
 
-#rm(list = ls())
+rm(list = ls())
 
 # For enkeltobjekter kan du bruke 
 
-rm()
+#rm()
 
 ######## SET.WORKING DIRECTORY - MANUEL VISNING 
 # Koden du får her kan du huske til neste gang sånn at du slipper 
 # å skrive koden hver gang 
-
+setwd("~/Desktop/R-SEMINAR1")
 ######## PAKKER + info
 
 
@@ -61,23 +91,22 @@ library(readxl)
 install.packages("tidyverse")
 library(tidyverse)
 
-# ggplot 
-# PDF-saver?
-
+library(ggplot2)
 ######## LASTE INN DATASETT
-
+data <- read_excel("DATA_SEMINAR1.xlsx")
 
 ######## NÅ HAR VI DATASETTET HVA GJØR VI SÅ? HVORDAN SER DET UT? 
 
 view(data)
 head(data)
-view(variable.names(data))
-summary(data)
-str(personst)   
-tail(personst)  
+show(variable.names(data))
+
+table(data$gender)
 
 ######## MER TABULLERING
 # For bedre oversikt over statistikken: beskrivende statistikk 
+
+
 
 ######## OMKODING AV VARIABLEN GENDER 
 
@@ -90,12 +119,32 @@ tail(personst)
 #Hva er gjennomsnittsalderen til kvinner? 
 
 #Hva er gjennomsnittsinntekten til menn?
-#Hva er gjennomsnittsinntekten til kvinner?
+# Først variabelnavn 
 
+show(variable.names(data))
+
+mean(data$income) #M for alle 
+mean(data$income[data$gender == "Male"]) #M for menn 
+
+table(data$gender) # Viser meg hva kategoriene heter
+
+#Hva er gjennomsnittsinntekten til kvinner?
+mean(data$income[data$gender == "Female"]) #M for kvinner 
 ########################################################
 
 ######## OMKODING AV VARIABLEN GENDER 
 
+table(data$gender)
+
+data$omkodet_gender <- ifelse(data$gender == "Female", 1, 0)
+
+
+data$kjonn <- ifelse(data$gender == "Female", "Kvinne", 
+                     ifelse(data$gender == "Male", "Mann", 
+                            ifelse(data$gender))) 
+View(data)
+
+View(data)
 ######## VI SKAL INDEKSERE MER, MEN PÅ EN ANNEN MÅTE
 # Vi må si til R hvilken informasjon vi vil hente ut
 # Dette gjør vi vha symboler
@@ -119,20 +168,26 @@ tail(personst)
 
 
 # Personer med alder over 60 - hvor mange er det? 
-
+data %>% 
+  filter(age > 60)
 
 # Kvinner med alder over 60 - hvor mange er det?
 
+data %>% 
+  filter(gender == "Female", age > 60)
+  
 
 # Menn med alder over 60 - hvor mange er det?
 
+data %>% 
+  filter()
 
 ######## GRAFIKK 
 
 ggplot(data = data, mapping = aes(age, income)) + 
   geom_smooth(method = "lm") 
 
-ggplot2::ggplot(data = data) + 
+ggplot(data = data) + 
   geom_smooth(method = "lm", mapping = aes(x = age, y = income, color = gender))
 
 
