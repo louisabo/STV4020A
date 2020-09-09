@@ -5,12 +5,16 @@ covidata <- read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/
 
 data <- read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/09-01-2020.csv", 
                  stringsAsFactors = F)
+
 library(tidyverse)
 View(data)
 
 ## Oppgave 1:
 
 ddata <- subset(data, Deaths > 0)
+
+dddata <- data %>% 
+filter (Deaths >0)
 
 #92 observasjoner. Men mange av dem er forskjellige stater i 
 #samme land. Vi kan bruke table() for ? se hvilke unike land:
