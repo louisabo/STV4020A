@@ -15,7 +15,7 @@
 # Man begynner alltid med å velge hvor man skal jobbe ut i fra
 
 # Setwd
-setwd("~/OneDrive - Universitetet i Oslo/STV1020-R/seminar_2")
+setwd("~\DESKTOP")
 
 # Sørg for at datasettet du skal jobbe med er i den filen 
 # du velger som working directory 

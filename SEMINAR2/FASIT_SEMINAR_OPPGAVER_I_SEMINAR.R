@@ -6,6 +6,7 @@
 # Hva er gjennomsnittet til alder-variablen? 
 
 mean(data$alder, na.rm = T ) # 47 
+# Bruk samme kode for resten av variablene
 
 # OPPGAVE 2 
 # Lag et nytt datasett med alle observasjoner 
