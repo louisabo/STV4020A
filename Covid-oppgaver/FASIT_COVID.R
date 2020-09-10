@@ -1,7 +1,11 @@
 #Løsningsforslag COVID19 OPPGAVER 
 
 covidata <- read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-16-2020.csv?fbclid=IwAR1Snt_p5Ir0pmWKIHAO2grXrGI4uk0s7_oUetEi8zOaWoT7g134HiG0zeY",
-                     stringsAsFactors = FALSE)
+                     stringsAsFactors = FALSE) 
+
+# Dere kan bruke begge datasett og sammenligne dem. 
+# Det som er spennende er at det som over denne linjen er fra 16. mars 2020 og det som er under er fra 1. september 2020. 
+# Så hvis du løser oppgavene først med det første og så med det andre så får du et inntrykk av utviklingen over tid. 
 
 data <- read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/09-01-2020.csv", 
                  stringsAsFactors = F)
