@@ -59,6 +59,8 @@ sum(is.na(data$internettbruk))
 # internettbruk og alder
 
 ############################################################
+# Før neste steg skal jeg snakke litt mer om klasser og målenivå
+# Vi må snakke igjen om koden as.factor og log 
 
 
 # Vi skal bruke siste modell til å kjøre regresjonsdiagnostikk
