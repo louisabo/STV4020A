@@ -21,6 +21,22 @@ ggplot(data, aes(income, education, col = gender)) +
   geom_smooth(method = "lm")
 
 # 3. Hvor mange kvinner tjener over 30.000? 
+
+# Her har jeg først gjort om variabelen til et annet tall slik at dere kan bare skrive 30. 
+# Det vil si at jeg har delt variabelen inntekt på 1000 
+# Jeg brukte følgende kode først: 
+
+
+data <- data %>% 
+mutate(income_1 = income/1000)
+
+# Så gjorde jeg om gender til verdiene 1 og 0. 
+
+data$gender1 <- ifelse(data$gender =="Female", 1, 0)
+
+# Så begynner jeg å telle
+
+
 data %>%
   filter(data$income_1>30, gender1<1)
 
