@@ -40,7 +40,7 @@ sum(is.na(data$internettbruk))
 # 3) Hvor mange observasjoner er det i datasettet? 
 
 # 4) Opprett en ny dummyvariabel av kjønn: 
-# Menn skal ha verdien 1 og kvinner 1
+# Menn skal ha verdien 1 og kvinner 0
 
 # 5) Opprett en ny variabel der alle som har utdanning over 
 # 13 år får verdien 1, men alle andre får verdien 0.
@@ -59,6 +59,8 @@ sum(is.na(data$internettbruk))
 # internettbruk og alder
 
 ############################################################
+# Før neste steg skal jeg snakke litt mer om klasser og målenivå
+# Vi må snakke igjen om koden as.factor og log 
 
 
 # Vi skal bruke siste modell til å kjøre regresjonsdiagnostikk
